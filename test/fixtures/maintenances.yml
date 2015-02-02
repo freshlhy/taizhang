@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  device_id: 1
+  mdate: 2015-02-02
+  location: MyString
+  maintainer: MyString
+
+two:
+  device_id: 1
+  mdate: 2015-02-02
+  location: MyString
+  maintainer: MyString

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150131025850) do
+ActiveRecord::Schema.define(version: 20150202031121) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -45,5 +45,57 @@ ActiveRecord::Schema.define(version: 20150131025850) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+
+  create_table "brands", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "devices", force: :cascade do |t|
+    t.string   "dept1st"
+    t.string   "dept2nd"
+    t.string   "dept3rd"
+    t.integer  "type_id"
+    t.integer  "brand_id"
+    t.string   "type"
+    t.date     "commissioning"
+    t.string   "asset_number"
+    t.integer  "value"
+    t.string   "fund_source"
+    t.string   "factory_number"
+    t.date     "production_date"
+    t.integer  "user_department_id"
+    t.string   "user"
+    t.integer  "user_phone"
+    t.string   "location"
+    t.string   "ip"
+    t.string   "mac"
+    t.string   "os"
+    t.string   "note"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "maintenances", force: :cascade do |t|
+    t.integer  "device_id"
+    t.date     "mdate"
+    t.string   "location"
+    t.string   "maintainer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
